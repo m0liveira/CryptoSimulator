@@ -1,0 +1,240 @@
+section {
+  position: relative;
+  background: #121e2b;
+  height: 100vh;
+}
+
+/* background img  with opacity */
+section::before {
+  content: "";
+  position: absolute;
+  background: url("https://images.unsplash.com/photo-1528722828814-77b9b83aafb2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+}
+
+/* navbar */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 5%;
+}
+
+/* link box */
+nav .link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12%;
+  height: 100%;
+}
+
+/* link */
+nav .link-container a {
+  position: relative;
+  color: white;
+  font-size: 1.2vw;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+/* link animation */
+nav .link-container a::before {
+  content: "";
+  position: absolute;
+  top: 105%;
+  left: 0;
+  background: white;
+  width: 100%;
+  height: 5%;
+  transform: scale(0);
+  transition: transform 200ms ease-in-out;
+}
+
+nav .link-container a:hover::before {
+  transform: scale(1);
+}
+
+/* upper box */
+.box-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+}
+
+/* 404 text */
+.box-404 h1 {
+  position: relative;
+  color: #e7ebf2;
+  font-size: 15vw;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-shadow: 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+/* ghost in th place of the 0 */
+.box-404 h1 svg {
+  fill: #528cce;
+  animation: spooky 2s alternate infinite linear;
+}
+
+/* ghost shadow */
+.box-404 h1::after {
+  content: "";
+  position: absolute;
+  top: 110%;
+  left: 40%;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 100%;
+  width: 20%;
+  height: 10%;
+  animation: ghostShadow 2s alternate infinite linear;
+}
+
+/* 404 text */
+.text-404 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 35%;
+  padding-top: 1%;
+}
+
+.text-404 h1 {
+  color: #e7ebf2;
+  font-size: 2vw;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  margin-bottom: 1%;
+}
+
+.text-404 p {
+  color: #ccc;
+  font-size: 1.3vw;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+}
+
+/* keyframe animations */
+@keyframes spooky {
+  from {
+    transform: translateY(5%);
+  }
+  to {
+    transform: translateY(-15%);
+  }
+}
+
+@keyframes ghostShadow {
+  from {
+    transform: scale(0.35);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* #region responsive*/
+
+@media (min-width: 576px) and (max-width: 1100px) {
+  /* link box */
+  nav .link-container {
+    width: 20%;
+  }
+
+  /* link */
+  nav .link-container a {
+    font-size: 2vw;
+  }
+
+  /* link animation */
+  nav .link-container a::before {
+    height: 8%;
+  }
+
+  /* 404 text */
+  .box-404 h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25vw;
+  }
+
+  /* ghost in th place of the 0 */
+  .box-404 h1 svg {
+    width: 40%;
+    height: 40%;
+  }
+
+  /* 404 text */
+  .text-404 {
+    padding-top: 5%;
+  }
+
+  .text-404 h1 {
+    font-size: 4vw;
+  }
+
+  .text-404 p {
+    color: #ccc;
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 575.99px) {
+  /* link box */
+  nav .link-container {
+    width: 25%;
+  }
+
+  /* link */
+  nav .link-container a {
+    font-size: 2.5vw;
+  }
+
+  /* link animation */
+  nav .link-container a::before {
+    height: 11%;
+  }
+
+  /* 404 text */
+  .box-404 h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30vw;
+  }
+
+  /* ghost in th place of the 0 */
+  .box-404 h1 svg {
+    width: 30%;
+    height: 30%;
+  }
+
+  /* 404 text */
+  .text-404 {
+    padding-top: 0;
+  }
+
+  .text-404 h1 {
+    font-size: 6vw;
+  }
+
+  .text-404 p {
+    margin-top: 2%;
+    font-size: 3vw;
+  }
+}
+
+/* #endregion */

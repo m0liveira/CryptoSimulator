@@ -1,0 +1,218 @@
+<section>
+  <!-- navbar -->
+  <nav>
+    <div class="walletBox">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="450 0 200 320">
+        <path fill="rgb(65, 67, 82)" fill-opacity="1"
+          d="M0,32L40,64C80,96,160,160,240,170.7C320,181,400,139,480,106.7C560,75,640,53,720,42.7C800,32,880,32,960,58.7C1040,85,1120,139,1200,176C1280,213,1360,235,1400,245.3L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+        </path>
+      </svg>
+
+      <div class="wallet-container">
+        <div class="box">
+          <img src="../../../assets/media/wallet.png" alt="wallet">
+
+          <h1>{{wallet}}€</h1>
+        </div>
+
+        <div class="box">
+          <h1>incomings</h1>
+          <p [ngClass]="{'red': incomings < 0}">{{incomings}}€</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="currencyBox">
+      <div class="currency-container">
+        <a #btc (click)="scroll(coin1)">Bitcoin</a>
+        <span>BTC</span>
+      </div>
+
+      <div class="currency-container">
+        <a #eth (click)="scroll(coin2)">Etherium</a>
+        <span>ETH</span>
+      </div>
+
+      <div class="currency-container">
+        <a #bnb (click)="scroll(coin3)">Binance Coin</a>
+        <span>BNB</span>
+      </div>
+
+      <div class="currency-container">
+        <a #xrp (click)="scroll(coin4)">XRP</a>
+        <span>XRP</span>
+      </div>
+
+      <div class="currency-container">
+        <a #doge (click)="scroll(coin5)">Dogecoin</a>
+        <span>Doge</span>
+      </div>
+
+      <div class="currency-container">
+        <a #dot (click)="scroll(coin6)">Polkadot</a>
+        <span>DOT</span>
+      </div>
+
+      <div class="currency-container">
+        <a #ltc (click)="scroll(coin7)">Litecoin</a>
+        <span>LTC</span>
+      </div>
+
+      <div class="currency-container">
+        <a #mrk (click)="scroll(coin8)">Maker</a>
+        <span>MKR</span>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="box-container">
+    <div class="card" #coin1>
+      <div class="img-container">
+        <img src="../../../assets/media/bitcoin.png" alt="bitcoin">
+      </div>
+
+      <div class="text">
+        <h1>Price <span #precoBTC>{{coinPriceBTC}}</span>€</h1>
+
+        <h1>Change <span [ngClass]="{'red': changeBTC < 0}">{{changeBTC}}€</span></h1>
+      </div>
+
+      <div class="invest-box">
+        <input type="text" #valorInvestidoBTC placeholder="Insira a quantidade">
+
+        <button (click)="comprar( btc.innerText, precoBTC.innerText , valorInvestidoBTC.value)">Invest</button>
+      </div>
+    </div>
+
+    <div class="card" #coin2>
+      <div class="img-container">
+        <img src="../../../assets/media/etherium.png" alt="etherium">
+      </div>
+
+      <div class="text">
+        <h1>Price <span #precoETH>{{coinPriceETH}}</span>€</h1>
+
+        <h1>Change <span [ngClass]="{'red': changeETH < 0}">{{changeETH}}€</span></h1>
+      </div>
+
+      <div class="invest-box">
+        <input type="text" #valorInvestidoETH placeholder="Insira a quantidade">
+
+        <button (click)="comprar( eth.innerText, precoETH.innerText , valorInvestidoETH.value)">Invest</button>
+      </div>
+    </div>
+
+    <div class="card" #coin3>
+      <div class="img-container">
+        <img src="../../../assets/media/binance.png" alt="binance coin">
+      </div>
+
+      <div class="text">
+        <h1>Price <span #precoBNB>{{coinPriceBNB}}</span>€</h1>
+
+        <h1>Change <span [ngClass]="{'red': changeBNB < 0}">{{changeBNB}}€</span></h1>
+      </div>
+
+      <div class="invest-box">
+        <input type="text" #valorInvestidoBNB placeholder="Insira a quantidade">
+
+        <button (click)="comprar( bnb.innerText, precoBNB.innerText , valorInvestidoBNB.value)">Invest</button>
+      </div>
+    </div>
+
+    <div class="card" #coin4>
+      <div class="img-container">
+        <img src="../../../assets/media/xrp.png" alt="xrp">
+      </div>
+
+      <div class="text">
+        <h1>Price <span #precoXRP>{{coinPriceXRP}}</span>€</h1>
+
+        <h1>Change <span [ngClass]="{'red': changeXRP < 0}">{{changeXRP}}€</span></h1>
+      </div>
+
+      <div class="invest-box">
+        <input type="text" #valorInvestidoXRP placeholder="Insira a quantidade">
+
+        <button (click)="comprar( xrp.innerText, precoXRP.innerText , valorInvestidoXRP.value)">Invest</button>
+      </div>
+    </div>
+
+    <div class="card" #coin5>
+      <div class="img-container">
+        <img src="../../../assets/media/dogecoin.png" alt="dogecoin">
+      </div>
+
+      <div class="text">
+        <h1>Price <span #precoDOGE>{{coinPriceDOGE}}</span>€</h1>
+
+        <h1>Change <span [ngClass]="{'red': changeDOGE < 0}">{{changeDOGE}}€</span></h1>
+      </div>
+
+      <div class="invest-box">
+        <input type="text" #valorInvestidoDOGE placeholder="Insira a quantidade">
+
+        <button (click)="comprar( doge.innerText, precoDOGE.innerText , valorInvestidoDOGE.value)">Invest</button>
+      </div>
+    </div>
+
+    <div class="card" #coin6>
+      <div class="img-container">
+        <img src="../../../assets/media/polkadot.png" alt="polkadot">
+      </div>
+
+      <div class="text">
+        <h1>Price <span #precoDOT>{{coinPriceDOT}}</span>€</h1>
+
+        <h1>Change <span [ngClass]="{'red': changeDOT < 0}">{{changeDOT}}€</span></h1>
+      </div>
+
+      <div class="invest-box">
+        <input type="text" #valorInvestidoDOT placeholder="Insira a quantidade">
+
+        <button (click)="comprar( dot.innerText, precoDOT.innerText , valorInvestidoDOT.value)">Invest</button>
+      </div>
+    </div>
+
+    <div class="card" #coin7>
+      <div class="img-container">
+        <img src="../../../assets/media/litecoin.png" alt="litecoin">
+      </div>
+
+      <div class="text">
+        <h1>Price <span #precoLTC>{{coinPriceLTC}}</span>€</h1>
+
+        <h1>Change <span [ngClass]="{'red': changeLTC < 0}">{{changeLTC}}€</span></h1>
+      </div>
+
+      <div class="invest-box">
+        <input type="text" #valorInvestidoLTC placeholder="Insira a quantidade">
+
+        <button (click)="comprar(ltc.innerText, precoLTC.innerText , valorInvestidoLTC.value)">Invest</button>
+      </div>
+    </div>
+
+    <div class="card" #coin8>
+      <div class="img-container">
+        <img src="../../../assets/media/maker.png" alt="maker">
+      </div>
+
+      <div class="text">
+        <h1>Price <span #precoMKR>{{coinPriceMKR}}</span>€</h1>
+
+        <h1>Change <span [ngClass]="{'red': changeMKR < 0}">{{changeMKR}}€</span></h1>
+      </div>
+
+      <div class="invest-box">
+        <input type="text" #valorInvestidoMrk placeholder="Insira a quantidade">
+
+        <button (click)="comprar(mrk.innerText, precoMKR.innerText , valorInvestidoMrk.value)">Invest</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <a (click)="withdraw()">Withdraw</a>
+  </div>
+</section>
